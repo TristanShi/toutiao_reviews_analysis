@@ -22,7 +22,9 @@ mycut = lambda s: ' '.join(jieba.cut(s))
 pos['Review_content'] = pos['Review_content'].apply(mycut)
 neg['Review_content'] = neg['Review_content'].apply(mycut)
 
-stop = pd.read_csv('stoplist.txt')
+stop = stop = pd.read_csv('stoplist.txt',
+						  encoding='utf-8', header= None, sep='tipdmlll')	# 设置一个不存在分割词，避免读取出错
+stop = [' ', ''] + list(stop[0])
 stop = [' ', ''] + list(stop[0])
 
 # 建立LDA模型
