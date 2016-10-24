@@ -184,7 +184,7 @@ class review:
         return [node.text for node in nodes]
 
     # 获取每一页200个的reviews的信息
-    def get_each_page_reviews(self, page_num):
+    def get_each_page_reviews(self):
         tree = etree.HTML(cd.page_source)
         # 得到reivewer name, title, contents的一个list
         # page_text_df.loc[len(page_text_df)] = [self.app_name, 'reviews_page %s'%str(page_num), cd.page_source]
@@ -237,12 +237,13 @@ class review:
         for i in range(self.begin_page + 1, self.page_num + 1):
             global beg
             beg = i
-            self.get_each_page_reviews(i - 1)
+            self.get_each_page_reviews()
             self.current_page = i  # 记录正在爬的页面
             time.sleep(uniform(0.7, 1.5))
             # 用于翻页
             self.next_reviews_page(num=i)
-
+		self.get_each_page_reviews()
+	
         self.save_reviews_info(self.app_name)
 
 
