@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-	Athuor: Tristan SHi
-	Created Date:   2016-09-19
-	Created Time:   PM4:01
-	'''
+Athuor: Tristan SHi
+Created Date:   2016-09-19
+Created Time:   PM4:01
+'''
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
